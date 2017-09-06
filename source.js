@@ -8,11 +8,21 @@
 // IDEA: for every 10 tens repeat C instead
 // IDEA: For every fifty tens, repeat D instead
 // IDEA: for every 100 tens, repeat M instead
-int I = 1
-int V = 5
-int X = 10
-int L = 50
-int C = 100
-int D = 500
-int M = 1000
+var I = 1
+var V = 5
+var X = 10
+var L = 50
+var C = 100
+var D = 500
+var M = 1000
 // I use the JSX standard styleguide for Javascript, which argues that line endings (;) are bad practice except in certain exempt circumstances and at the end of the file. https://standardjs.com/rules.html
+
+(function () {
+  let number = document.querySelector('input')
+  let btn = document.querySelector('button')
+  let numeral = document.querySelector('.numeral')
+
+  btn.addEventListener('click', () => {
+    let numberTo = number.value
+  })
+})()
