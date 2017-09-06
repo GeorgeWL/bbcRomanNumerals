@@ -1,0 +1,38 @@
+{
+  "name": "bbc_app",
+  "version": "1.0.0",
+  "description": "Made for a BBC challenge",
+  "main": "source.js",
+  "dependencies": {
+    "eslint": "^4.6.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.6.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeorgeWL/bbcRomanNumerals.git"
+  },
+  "keywords": [
+    "javascript",
+    "code",
+    "challenge",
+    "kata",
+    "bbc",
+    "roman"
+  ],
+  "author": "GeorgeWL",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GeorgeWL/bbcRomanNumerals/issues"
+  },
+  "homepage": "https://github.com/GeorgeWL/bbcRomanNumerals#readme"
+}
