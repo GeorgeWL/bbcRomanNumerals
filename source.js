@@ -10,16 +10,6 @@
 // M = 1000
 // NOTE: I use the JSX standard styleguide for Javascript, which argues that line endings () are bad practice except in certain exempt circumstances and at the end of the function. https://standardjs.com/rules.html
 // IDEA: Split into object of thousands, hundreds, tens and units. for each thousand echo a M, D, etc. etc.
-(function() {
-  let number = document.querySelector('input')
-  let btn = document.querySelector('button')
-  // let numeral = document.querySelector('#numeral')
-
-  btn.addEventListener('click', () => {
-    // let numberTo = number.value
-  })
-})()
-
 function getMultiplesOfTen(number) {
   document.getElementById('result').innerHTML = ''
   number = parseInt(number)
