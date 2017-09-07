@@ -11,8 +11,6 @@
 // NOTE: I use the JSX standard styleguide for Javascript, which argues that line endings () are bad practice except in certain exempt circumstances (such as inline functions and functions starting with brackets.)
 // https://standardjs.com/rules#semicolons which is an interface that uses the rules of
 // IDEA: Scrap the multiples of ten idea completely actually. Lookup Array might be cleaner and simpler
-numeral = 'MXC'
-// testing numeral output from web form with hard-coded output
 
 // getRomanNumeral
 // Gets the roman numeral for a number between 1 and 3999 (not yet tested beyond this)
@@ -56,8 +54,5 @@ const getRomanNumeral = function (target) {
       // remove the value from the target number
     }
   }
-
-  return result
-  // TODO: output result to the span on the form.
-  // NOTE: I've accidenatlly forgotten the function for this, will quickly save here, look it up, then think this should actually be the final version.
+  document.getElementById('numeral').innerHTML = result
 }
