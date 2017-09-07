@@ -8,51 +8,56 @@
 // C = 100
 // D = 500
 // M = 1000
-// NOTE: I use the JSX standard styleguide for Javascript, which argues that line endings () are bad practice except in certain exempt circumstances and at the end of the function. https://standardjs.com/rules.html
-// IDEA: Split into object of thousands, hundreds, tens and units. for each thousand echo a M, D, etc. etc.
-// IDEA:
+// NOTE: I use the JSX standard styleguide for Javascript, which argues that line endings () are bad practice except in certain exempt circumstances (such as inline functions and functions starting with brackets.)
+// https://standardjs.com/rules#semicolons which is an interface that uses the rules of
+// IDEA: Scrap the multiples of ten idea completely actually. Lookup Array might be cleaner and simpler
 numeral = 'MXC'
-// testing numeral output form web form with hard-coded output
-function getMultiplesOfTen (number) {
-  document.getElementById('result').innerHTML = ''
-  number = parseInt(number)
-  if (typeof (number) !== 'number') return number
-  var result = {}
+// testing numeral output from web form with hard-coded output
 
-  (function breakDown (num) {
-    if (isNaN(num)) return num // if it's invalid return
-    if (num <= 0) return false
-    num = num.toFixed(0) // get rid of decimals
+// getRomanNumeral
+// Gets the roman numeral for a number between 1 and 3999 (not yet tested beyond this)
 
-    var divisor = Math.pow(10, num.length - 1), // ex. when num = 300, divisor = 100
-      quotient = Math.floor(num / divisor)
-    result[divisor] = quotient // add it to our object
-    breakDown(num % divisor) // break down the remainder
-  })(number)
-  // return result as an object
-  return result
-}
-
-// functions for visuals only
-var input = document.getElementById('input')
-var result = document.getElementById('result')
-
-input.onkeyup = function results () {
-  var obj = getMultiplesOfTen(input.value)
-  for (var prop in obj) {
-    var table = document.getElementById('result'),
-      tr = document.createElement('tr'),
-      th = document.createElement('th'),
-      td = document.createElement('td')
-    // add data
-    td.innerHTML = obj[prop] + ' multiples of '
-    th.innerHTML = prop
-
-    // add nodes to table
-    tr.appendChild(td)
-    tr.appendChild(th)
-
-    table.appendChild(tr)
+const getRomanNumeral = function (target) {
+  // only accept numbers
+  if (typeof target !== 'number') {
+    throw new Error(`Target must be of type 'number', found ${typeof target}`)
   }
+  // only accept whole numbers
+  if (target.toString().includes('.')) {
+    throw new Error(`Target must be an whole number`)
+  }
+  // set result as equal to contents
+  let result = ''
+
+  // lookup table containing numerals and their number equivalents
+  let keys = {
+    'M': 1000,
+    'CM': 900,
+    'D': 500,
+    'CD': 400,
+    'C': 100,
+    'XC': 90,
+    'L': 50,
+    'XL': 40,
+    'X': 10,
+    'IX': 9,
+    'V': 5,
+    'IV': 4,
+    'I': 1
+  }
+
+  for (let numeral in keys) {
+    // for each numeral in keys
+    while (target >= keys[numeral]) {
+      // while target is gte the value of the numeral
+      result += numeral
+      // add the numeral to the result
+      target -= keys[numeral]
+      // remove the value from the target number
+    }
+  }
+
+  return result
+  // TODO: output result to the span on the form.
+  // NOTE: I've accidenatlly forgotten the function for this, will quickly save here, look it up, then think this should actually be the final version.
 }
-// TODO: Create a function which takes the output of Result from breakDown and then converts it to Roman Numerals
