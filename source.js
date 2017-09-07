@@ -56,8 +56,5 @@ const getRomanNumeral = function (target) {
       // remove the value from the target number
     }
   }
-
-  return result
-  // TODO: output result to the span on the form.
-  // NOTE: I've accidenatlly forgotten the function for this, will quickly save here, look it up, then think this should actually be the final version.
+  document.getElementById('numeral').innerHTML = result
 }
